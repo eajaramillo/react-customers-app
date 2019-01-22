@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import HomeContainer from './containers/HomeContainer';
+import CustomersContainer from './containers/CustomersContainer';
+//import CustomerContainer from './containers/CustomerContainer';
+//import NewCustomerContainer from './containers/NewCustomerContainer';
 
 class App extends Component {
 
@@ -17,11 +21,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/customers/new" component={this.renderCustomerNewContainer} />
-          <Route path="/customers/:dni" component={this.renderCustomerContainer} />
+          <Route path="/" component={HomeContainer} />
+          <Route path="/customers" component={CustomersContainer} />
           <Switch>
-            <Route path="/customers" component={this.renderCustomerListContainer} />
-            <Route path="/" component={this.renderHome} />
+            <Route path="/customers/new" component={this.renderCustomerNewContainer} />
+            <Route path="/customers/:dni" component={CustomersContainer} />
           </Switch>
         </div>
       </Router>
