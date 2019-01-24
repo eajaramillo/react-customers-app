@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import HomeContainer from './containers/HomeContainer';
 import CustomersContainer from './containers/CustomersContainer';
-//import CustomerContainer from './containers/CustomerContainer';
+import CustomerContainer from './containers/CustomerContainer';
 //import NewCustomerContainer from './containers/NewCustomerContainer';
 
 class App extends Component {
@@ -15,8 +15,6 @@ class App extends Component {
 
   renderCustomerListContainer = () => <h1>Customer List Container</h1>;
 
-  renderCustomerNewContainer = () => <h1>Customer New Container</h1>;
-  
   render() {
     return (
       <Router>
@@ -25,7 +23,8 @@ class App extends Component {
           <Route path="/customers" component={CustomersContainer} />
           <Switch>
             <Route path="/customers/new" component={this.renderCustomerNewContainer} />
-            <Route path="/customers/:dni" component={CustomersContainer} />
+            <Route path="/customers/:documento" 
+                  render={props => <CustomerContainer dni={props.match.params.documento} />} />
           </Switch>
         </div>
       </Router>
