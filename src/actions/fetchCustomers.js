@@ -18,4 +18,4 @@ import { urlCustomers } from '../api/urls';
     }
 ]; */
 
-export const fetchCustomers = createAction(FETCH_CUSTOMERS, apiGet(urlCustomers) );
+export const fetchCustomers = createAction(FETCH_CUSTOMERS, apiGet(urlCustomers));
